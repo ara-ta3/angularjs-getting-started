@@ -9,9 +9,14 @@
 <body>
     <h1>AngularJSの練習</h1>
     <div ng-controller="mainCtrl">
+
+        <p>{{today|date:"yyyy-MM-dd"}}</p>
+        <hr>
+        <p><input type="text" ng-model='query.name'></p>
+
         <p>{{users.length}} users</p>
-        <ul ng-repeat='user in users'>
-            <li>{{user.name}} : {{user.score}}</li>
+        <ul ng-repeat='user in users|filter:query'>
+            <li>{{user.name|uppercase}} : {{user.score|number:4}}</li>
         </ul>
     </div>
     <script src='http://127.0.0.1:35729/livereload.js'></script>
