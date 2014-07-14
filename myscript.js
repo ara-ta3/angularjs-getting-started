@@ -14,4 +14,11 @@ var mainCtrl = function($scope) {
         {"name":"sasaki","score": 50.213},
 
     ];
-}
+};
+
+// コントローラーがネストすると変数を継承できる
+var userItemCtrl = function($scope) {
+    $scope.increment = function() {
+        $scope.user.score++;
+    }
+};

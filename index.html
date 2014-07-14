@@ -20,9 +20,10 @@
         <p><input type="text" ng-model='query.name'></p>
 
         <p>{{users.length}} users</p>
-        <ul ng-repeat='user in users|filter:query' ng-class-even="'even'" ng-class-odd='"odd"'>
+        <ul ng-repeat='user in users' ng-controller="userItemCtrl">
             <li>
-            {{$index+1}} {{$first}} {{$middle}} {{$last}} {{user.name|uppercase}} : {{user.score|number:4}}
+            {{user.name|uppercase}} : {{user.score}}
+            <button ng-click="increment()">+1</button>
             </li>
         </ul>
     </div>
