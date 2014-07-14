@@ -9,9 +9,12 @@
 <body>
     <h1>AngularJSの練習</h1>
     <div ng-controller="mainCtrl">
-        <form name='myName' ng-submit='addUser()'>
+        <form name='myForm' ng-submit='addUser()' novalidate>
             <p>
-            Name:<input type="text" name="name" ng-model='user.name'>
+            Name:<input type="text" name="name" ng-model='user.name'required ng-minlength="5" ng-maxlength="8">
+            <span ng-show='myForm.name.$error.required'>Required!</span>
+            <span ng-show='myForm.name.$error.minlength'>too short!</span>
+            <span ng-show='myForm.name.$error.maxlength'>too long!</span>
             </p>
             <p><input type="submit" value='add'></p>
         </form>
