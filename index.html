@@ -5,27 +5,20 @@
     <title></title>
     <script src=bower_components/angular/angular.min.js></script>
     <script type="text/javascript" src=/myscript.js></script>
-    <style>
-        .even{
-            background-color:#ccc;
-        }
-    </style>
 </head>
 <body>
     <h1>AngularJSの練習</h1>
     <div ng-controller="mainCtrl">
+        <form name='myName' ng-submit='addUser()'>
+            <p>
+            Name:<input type="text" name="name" ng-model='user.name'>
+            </p>
+            <p><input type="submit" value='add'></p>
+        </form>
+<pre>
+    {{user|json}}
+</pre>
 
-        <p>{{today|date:"yyyy-MM-dd"}}</p>
-        <hr>
-        <p><input type="text" ng-model='query.name'></p>
-
-        <p>{{users.length}} users</p>
-        <ul ng-repeat='user in users' ng-controller="userItemCtrl">
-            <li>
-            {{user.name|uppercase}} : {{user.score}}
-            <button ng-click="increment()">+1</button>
-            </li>
-        </ul>
     </div>
     <script src='http://127.0.0.1:35729/livereload.js'></script>
 </body>
