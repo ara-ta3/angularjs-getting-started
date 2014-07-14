@@ -5,6 +5,11 @@
     <title></title>
     <script src=bower_components/angular/angular.min.js></script>
     <script type="text/javascript" src=/myscript.js></script>
+    <style>
+        .even{
+            background-color:#ccc;
+        }
+    </style>
 </head>
 <body>
     <h1>AngularJSの練習</h1>
@@ -15,8 +20,10 @@
         <p><input type="text" ng-model='query.name'></p>
 
         <p>{{users.length}} users</p>
-        <ul ng-repeat='user in users|filter:query'>
-            <li>{{user.name|uppercase}} : {{user.score|number:4}}</li>
+        <ul ng-repeat='user in users|filter:query' ng-class-even="'even'" ng-class-odd='"odd"'>
+            <li>
+            {{$index+1}} {{$first}} {{$middle}} {{$last}} {{user.name|uppercase}} : {{user.score|number:4}}
+            </li>
         </ul>
     </div>
     <script src='http://127.0.0.1:35729/livereload.js'></script>
