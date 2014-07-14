@@ -11,26 +11,17 @@
     <div ng-controller="mainCtrl">
         <form name='myForm' ng-submit='addUser()' novalidate>
             <p>
-            Name:<input type="text" name="name" ng-model='user.name'required ng-minlength="5" ng-maxlength="8">
-            <span ng-show='myForm.name.$error.required'>Required!</span>
-            <span ng-show='myForm.name.$error.minlength'>too short!</span>
-            <span ng-show='myForm.name.$error.maxlength'>too long!</span>
+                18+ <input type="checkbox" ng-model='user.adult' ng-true-value='adult' ng-false-value='child'>
             </p>
             <p>
-            Score:<input type="number" name="score" ng-model='user.score'>
+            <input type="radio" ng-model="user.phone" value='iPhone'> iPhone
+            <input type="radio" ng-model="user.phone" value='Android'> Android
             </p>
 
             <p>
-            Email:<input type="email" name="email" ng-model='user.email'>
-            <span ng-show="myForm.email.$error.email">Not Valid Email</span>
+            <textarea ng-model="user.memo" ng-maxlength="140" >
+            </textarea>{{140 - user.memo.length}}
             </p>
-
-            <p>
-            Web:<input type="url" name="url" ng-model='user.url'>
-            <span ng-show="myForm.url.$error.url">Not Valid Url</span>
-            </p>
-
-
             <p><input type="submit" value='add'></p>
         </form>
 <pre>
